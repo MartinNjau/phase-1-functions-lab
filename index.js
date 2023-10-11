@@ -1,35 +1,36 @@
-function distanceFromHqInBlocks() {
-    let Hq=42;
-    let pickup=34;
-    let blocks=(Hq-pickup);
-    return blocks;
+function distanceFromHqInBlocks(pickup) {
+    const hq=42;
+    return Math.abs(pickup-hq);
+
+}
+distanceFromHqInBlocks(50);
+distanceFromHqInBlocks(35);
+distanceFromHqInBlocks(22);
+    
+
+function distanceFromHqInFeet(num){
+    let dist=(distanceFromHqInBlocks(num)*264);
+    return dist;
 }
 
-function distanceFromHqInFeet(){
-    let Hq=42;
-    let pickup=34;
-    let blocks=(Hq-pickup);
-    let blocksinfeet=(blocks*264);
-    return blocksinfeet;
-}
+    
 
-function distanceTravelledInFeet(){
-    let pickup=34;
-    let dropoff=39;
-    let distance=((dropoff-pickup)*264);
-    return distance ;
+
+function distanceTravelledInFeet(pickup,dropoff){
+    return Math.abs((pickup-dropoff)*264);
+    
 }
 
 function calculatesFarePrice(start, destination){
-        let dist=(destination-start)*264;
-        if(dist<=400){
+        let distance=Math.abs((destination-start)*264);
+        if (distance<=400) {
             return 0;
         }
-        else if(dist>400&&dist<=2000){
-            let fare=(dist*0.02);
-            return 'Your total bill is $' + fare;
+        else if (distance>400&&distance<=2000) {
+            let fare = ((distance-400)*0.02) ;
+            return  fare;
         }
-        else if(dist>2000&&dist<=2500){
+        else if (distance>2000&&distance<=2500) {
             const charge=25;
             return charge;
 
